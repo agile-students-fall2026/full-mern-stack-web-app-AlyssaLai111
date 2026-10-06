@@ -21,6 +21,7 @@ mongoose
 // load the dataabase models we want to deal with
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
+// const { AboutUs } = require('./models/AboutUs')
 
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
@@ -76,6 +77,21 @@ app.post('/messages/save', async (req, res) => {
       status: 'failed to save the message to the database',
     })
   }
+})
+
+// a route to retrieve about page content
+app.get('/about-us', (req, res) => {
+  res.json({
+    title: 'About Us', 
+    paragraphs: ["Hi, my name is Alyssa Lai. I'm 19 years old (soon-to-be 20 in November) and am currently a junior at CAS majoring in Computer Science and Mathematics.", 
+      "I was born and raised in Brooklyn, NY, and am still commuting from there every day for classes.", 
+      "I love reading manga and manhwa, watching anime, and reading light novels and webnovels.",
+      "Though I've spent three years studying CS, I'm still very inexperienced and have a lot to learn.", 
+      "Every now and then, I work for a few months as a student tutor at a public school."
+    ], 
+    // i genuinely don't have a pic of myself lol
+    image: '',
+  })
 })
 
 // export the express app we created to make it available to other modules
