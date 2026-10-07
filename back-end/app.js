@@ -21,7 +21,6 @@ mongoose
 // load the dataabase models we want to deal with
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
-// const { AboutUs } = require('./models/AboutUs')
 
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
@@ -79,7 +78,7 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
-// a route to retrieve about page content
+// a route to retrieve about page content as JSON data
 app.get('/about-us', (req, res) => {
   res.json({
     title: 'About Us', 
@@ -89,8 +88,7 @@ app.get('/about-us', (req, res) => {
       "Though I've spent three years studying CS, I'm still very inexperienced and have a lot to learn.", 
       "Every now and then, I work for a few months as a student tutor at a public school."
     ], 
-    // i genuinely don't have a pic of myself lol
-    image: '',
+    image: "./me.jpg",
   })
 })
 
